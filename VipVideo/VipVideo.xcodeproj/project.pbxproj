@@ -23,6 +23,7 @@
 		D4AF9DDF203FB58C00E6D20F /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D4AF9DDC203FB58B00E6D20F /* 2.jpeg */; };
 		D4AF9DE0203FB58C00E6D20F /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D4AF9DDD203FB58C00E6D20F /* 1.jpeg */; };
 		D4AF9DE3203FB5F100E6D20F /* ABCIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF9DE2203FB5F000E6D20F /* ABCIntroView.m */; };
+		D4AF9DE62043EF4600E6D20F /* UIView+LLXPushVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF9DE52043EF4600E6D20F /* UIView+LLXPushVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		D4AF9DDD203FB58C00E6D20F /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		D4AF9DE1203FB5F000E6D20F /* ABCIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCIntroView.h; sourceTree = "<group>"; };
 		D4AF9DE2203FB5F000E6D20F /* ABCIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCIntroView.m; sourceTree = "<group>"; };
+		D4AF9DE42043EF4600E6D20F /* UIView+LLXPushVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+LLXPushVC.h"; sourceTree = "<group>"; };
+		D4AF9DE52043EF4600E6D20F /* UIView+LLXPushVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+LLXPushVC.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 				D4AF9DDD203FB58C00E6D20F /* 1.jpeg */,
 				D4AF9DDC203FB58B00E6D20F /* 2.jpeg */,
 				D4AF9DDB203FB58B00E6D20F /* 3.jpeg */,
+				D4AF9DE42043EF4600E6D20F /* UIView+LLXPushVC.h */,
+				D4AF9DE52043EF4600E6D20F /* UIView+LLXPushVC.m */,
 				D4AF9D43203EAEA000E6D20F /* AppDelegate.h */,
 				D4AF9D44203EAEA000E6D20F /* AppDelegate.m */,
 				D4AF9D78203EAFE600E6D20F /* HomeVC.h */,
@@ -311,6 +316,7 @@
 			files = (
 				D4AF9D7D203EB05200E6D20F /* TutorialVC.m in Sources */,
 				D4AF9D53203EAEA000E6D20F /* main.m in Sources */,
+				D4AF9DE62043EF4600E6D20F /* UIView+LLXPushVC.m in Sources */,
 				D4AF9D83203EBDE100E6D20F /* WebViewVC.m in Sources */,
 				D4AF9D7A203EAFE600E6D20F /* HomeVC.m in Sources */,
 				D4AF9D86203F9A2700E6D20F /* PlayVideoVC.m in Sources */,
