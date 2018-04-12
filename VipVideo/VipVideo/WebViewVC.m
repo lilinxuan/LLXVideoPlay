@@ -29,12 +29,56 @@
 {
     WKWebView *wkWeb;
 }
+
+@property (nonatomic,strong) UIBarButtonItem *returnButton;
+@property (nonatomic,strong) UIBarButtonItem *closeItem;
 @end
 
 @implementation WebViewVC
+- (UIBarButtonItem *)returnButton {
+    if (!_returnButton) {
+        _returnButton = [[UIBarButtonItem alloc] init];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 
+        [button setTitle:@"  返回" forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(respondsToReturnToBack:) forControlEvents:UIControlEventTouchUpInside];
+        [button.titleLabel setFont:[UIFont systemFontOfSize:17]];
+ 
+        [button sizeToFit];
+        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        button.contentEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0);
+        button.frame = CGRectMake(20, 0, 40, 40);
+        _returnButton.customView = button;
+        self.navigationItem.leftBarButtonItem = _returnButton;
+    }
+    return _returnButton;
+}
+- (UIBarButtonItem *)closeItem {
+    if (!_closeItem) {
+        _closeItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStyleDone target:self action:@selector(respondsToReturnToFind:)];
+    }
+    return _closeItem;
+}
+
+- (void)respondsToReturnToBack:(UIButton *)sender {
+    if ([wkWeb canGoBack]) {//判断当前的H5页面是否可以返回
+        //如果可以返回，则返回到上一个H5页面，并在左上角添加一个关闭按钮
+        [wkWeb goBack];
+        self.navigationItem.leftBarButtonItems = @[self.returnButton, self.closeItem];
+    } else {
+        //如果不可以返回，则直接:
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+- (void)respondsToReturnToFind:(UIBarButtonItem *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self returnButton];
+    [self closeItem];
     self.title = self.titleString;
     wkWeb = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0,APPSIZE.width , APPSIZE.height)];
     
