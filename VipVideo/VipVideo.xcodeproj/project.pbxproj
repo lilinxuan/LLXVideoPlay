@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4569D3A26097D4E009928AE /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4569D3026097D4E009928AE /* SVIndefiniteAnimatedView.m */; };
+		D4569D3B26097D4E009928AE /* UIViewController+SVPHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D4569D3126097D4E009928AE /* UIViewController+SVPHUD.m */; };
+		D4569D3C26097D4E009928AE /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D4569D3426097D4E009928AE /* SVProgressHUD.bundle */; };
+		D4569D3D26097D4E009928AE /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D4569D3726097D4E009928AE /* SVProgressHUD.m */; };
+		D4569D3E26097D4E009928AE /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4569D3826097D4E009928AE /* SVRadialGradientLayer.m */; };
+		D4569D3F26097D4E009928AE /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4569D3926097D4E009928AE /* SVProgressAnimatedView.m */; };
 		D4AF9D45203EAEA000E6D20F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AF9D44203EAEA000E6D20F /* AppDelegate.m */; };
 		D4AF9D4B203EAEA000E6D20F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4AF9D49203EAEA000E6D20F /* Main.storyboard */; };
 		D4AF9D4D203EAEA000E6D20F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4AF9D4C203EAEA000E6D20F /* Assets.xcassets */; };
@@ -43,6 +49,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D4569D2A26097B56009928AE /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D4569D2F26097D4E009928AE /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		D4569D3026097D4E009928AE /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		D4569D3126097D4E009928AE /* UIViewController+SVPHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SVPHUD.m"; sourceTree = "<group>"; };
+		D4569D3226097D4E009928AE /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		D4569D3326097D4E009928AE /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		D4569D3426097D4E009928AE /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		D4569D3526097D4E009928AE /* UIViewController+SVPHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SVPHUD.h"; sourceTree = "<group>"; };
+		D4569D3626097D4E009928AE /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		D4569D3726097D4E009928AE /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		D4569D3826097D4E009928AE /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		D4569D3926097D4E009928AE /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
 		D4AF9D40203EAEA000E6D20F /* VipVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VipVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AF9D43203EAEA000E6D20F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D4AF9D44203EAEA000E6D20F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -99,6 +117,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4569D2E26097D22009928AE /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				D4569D2F26097D4E009928AE /* SVIndefiniteAnimatedView.h */,
+				D4569D3026097D4E009928AE /* SVIndefiniteAnimatedView.m */,
+				D4569D3626097D4E009928AE /* SVProgressAnimatedView.h */,
+				D4569D3926097D4E009928AE /* SVProgressAnimatedView.m */,
+				D4569D3426097D4E009928AE /* SVProgressHUD.bundle */,
+				D4569D3326097D4E009928AE /* SVProgressHUD.h */,
+				D4569D3726097D4E009928AE /* SVProgressHUD.m */,
+				D4569D3226097D4E009928AE /* SVRadialGradientLayer.h */,
+				D4569D3826097D4E009928AE /* SVRadialGradientLayer.m */,
+				D4569D3526097D4E009928AE /* UIViewController+SVPHUD.h */,
+				D4569D3126097D4E009928AE /* UIViewController+SVPHUD.m */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		D4AF9D37203EAE9F00E6D20F = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +159,7 @@
 		D4AF9D42203EAEA000E6D20F /* VipVideo */ = {
 			isa = PBXGroup;
 			children = (
+				D4569D2E26097D22009928AE /* lib */,
 				D4AF9DDD203FB58C00E6D20F /* 1.jpeg */,
 				D4AF9DDC203FB58B00E6D20F /* 2.jpeg */,
 				D4AF9DDB203FB58B00E6D20F /* 3.jpeg */,
@@ -138,6 +175,7 @@
 				D4AF9D7C203EB05200E6D20F /* TutorialVC.m */,
 				D4AF9DE1203FB5F000E6D20F /* ABCIntroView.h */,
 				D4AF9DE2203FB5F000E6D20F /* ABCIntroView.m */,
+				D4569D2A26097B56009928AE /* PrefixHeader.pch */,
 				D4AF9D49203EAEA000E6D20F /* Main.storyboard */,
 				D4AF9D4C203EAEA000E6D20F /* Assets.xcassets */,
 				D4AF9D4E203EAEA000E6D20F /* LaunchScreen.storyboard */,
@@ -240,7 +278,7 @@
 				TargetAttributes = {
 					D4AF9D3F203EAEA000E6D20F = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					D4AF9D57203EAEA000E6D20F = {
 						CreatedOnToolsVersion = 9.2;
@@ -279,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4569D3C26097D4E009928AE /* SVProgressHUD.bundle in Resources */,
 				D4AF9DDF203FB58C00E6D20F /* 2.jpeg in Resources */,
 				D4AF9DE0203FB58C00E6D20F /* 1.jpeg in Resources */,
 				D4AF9D50203EAEA000E6D20F /* LaunchScreen.storyboard in Resources */,
@@ -312,10 +351,15 @@
 				D4AF9D7D203EB05200E6D20F /* TutorialVC.m in Sources */,
 				D4AF9D53203EAEA000E6D20F /* main.m in Sources */,
 				D4AF9D83203EBDE100E6D20F /* WebViewVC.m in Sources */,
+				D4569D3A26097D4E009928AE /* SVIndefiniteAnimatedView.m in Sources */,
+				D4569D3B26097D4E009928AE /* UIViewController+SVPHUD.m in Sources */,
 				D4AF9D7A203EAFE600E6D20F /* HomeVC.m in Sources */,
 				D4AF9D86203F9A2700E6D20F /* PlayVideoVC.m in Sources */,
+				D4569D3D26097D4E009928AE /* SVProgressHUD.m in Sources */,
 				D4AF9D45203EAEA000E6D20F /* AppDelegate.m in Sources */,
 				D4AF9DE3203FB5F100E6D20F /* ABCIntroView.m in Sources */,
+				D4569D3E26097D4E009928AE /* SVRadialGradientLayer.m in Sources */,
+				D4569D3F26097D4E009928AE /* SVProgressAnimatedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,16 +522,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = K2NKSZ8QPQ;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W39F929P7Z;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/VipVideo/PrefixHeader.pch";
 				INFOPLIST_FILE = VipVideo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lilinxuan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuaquantu.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9f0fbca4-aae6-4c9f-9d5f-055f96d0734b";
-				PROVISIONING_PROFILE_SPECIFIER = lilinxuan;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -496,16 +542,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = K2NKSZ8QPQ;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W39F929P7Z;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/VipVideo/PrefixHeader.pch";
 				INFOPLIST_FILE = VipVideo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = lilinxuan;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuaquantu.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "9f0fbca4-aae6-4c9f-9d5f-055f96d0734b";
-				PROVISIONING_PROFILE_SPECIFIER = lilinxuan;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -1,0 +1,73 @@
+//
+//  PrefixHeader.pch
+//  VipVideo
+//
+//  Created by 李林轩 on 2021/3/23.
+//  Copyright © 2021 李林轩. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//应用size
+#define  APPSIZE   [[UIScreen mainScreen] bounds].size
+#define  iosSystemVersion  [[[UIDevice currentDevice] systemVersion] floatValue]
+#define RGBA(r,g,b,a) [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:a]
+#define RGB(r,g,b) [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:1]
+#define imageName(string)          [UIImage imageNamed:string]
+
+
+#import "UIViewController+SVPHUD.h"
+
+//屏幕适配
+//是否为iphone5
+#define IS_IPHONE_5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+//是否为iphone6
+#define IS_IPHONE_6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size)) : NO)
+
+
+//是否为iphone6Plus
+#define IS_IPHONE_6PLUS  ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? (CGSizeEqualToSize(CGSizeMake(1125, 2001), [[UIScreen mainScreen] currentMode].size) || CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size)) : NO)
+
+//判断iPhoneX，Xs（iPhoneX，iPhoneXs）
+#define IS_IPHONE_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+//判断iPhoneXr
+#define IS_IPHONE_Xr1 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
+//判断iPhoneXr
+#define IS_IPHONE_Xr2 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1624), [[UIScreen mainScreen] currentMode].size) : NO)
+//判断iPhoneXsMax
+#define IS_IPHONE_Xs_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
+
+//判断iPhone12_Mini
+#define DX_Is_iPhone12_Mini ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1080, 2340), [[UIScreen mainScreen] currentMode].size) : NO)
+
+//判断iPhone12 | 12Pro
+#define DX_Is_iPhone12 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1170, 2532), [[UIScreen mainScreen] currentMode].size) : NO)
+
+//判断iPhone12 Pro Max
+#define DX_Is_iPhone12_ProMax ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1284, 2778), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+
+//是否为iphone X
+#define IS_IPHONE_X_XR_XMAX   (IS_IPHONE_X || IS_IPHONE_Xr1 || IS_IPHONE_Xr2 || IS_IPHONE_Xs_Max || DX_Is_iPhone12_Mini || DX_Is_iPhone12 || DX_Is_iPhone12_ProMax)
+
+//判断如果是iPhone X
+#define IOS11_OR_LATER_SPACE(par)({ float space = 0.0;if (@available(iOS 11.0, *)) space = par;(space);})
+#define IOS11_OR_LATER_SPACE88(par)({ float space = 64;if (IS_IPHONE_X_XR_XMAX) space = par;(space);})
+#define IOS11_OR_LATER_SPACE20(par)({ float space = 20;if (IS_IPHONE_X_XR_XMAX) space = par;(space);})
+#define IOS11_OR_LATER_SPACE0(par)({ float space = 0;if (IS_IPHONE_X_XR_XMAX) space = par;(space);})
+
+
+#define JF_KEY_WINDOW    [UIApplication sharedApplication].keyWindow
+#define TOP_SPACE88or64     IOS11_OR_LATER_SPACE88(88)
+#define TOP_SPACE20or44     IOS11_OR_LATER_SPACE20(44)
+#define TOP_SPACE44or0     IOS11_OR_LATER_SPACE0(44)
+#define TOP_SPACE24or0     IOS11_OR_LATER_SPACE0(24)
+#define BOTTOM_SPACE34or0  IOS11_OR_LATER_SPACE0(34)
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */

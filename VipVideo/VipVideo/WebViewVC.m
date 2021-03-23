@@ -6,23 +6,8 @@
 //  Copyright © 2018年 李林轩. All rights reserved.
 //
 
-#define APPSIZE [[UIScreen mainScreen] bounds].size
-//是否为iphone X
-#define IS_IPHONE_X ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )812 ) < DBL_EPSILON )
-//判断如果是iPhone X
-#define IOS11_OR_LATER_SPACE(par)({ float space = 0.0;if (@available(iOS 11.0, *)) space = par;(space);})
-#define IOS11_OR_LATER_SPACE88(par)({ float space = 64;if (IS_IPHONE_X) space = par;(space);})
-#define IOS11_OR_LATER_SPACE20(par)({ float space = 20;if (IS_IPHONE_X) space = par;(space);})
-
-#define JF_KEY_WINDOW    [UIApplication sharedApplication].keyWindow
-#define TOP_SPACE88or64     IOS11_OR_LATER_SPACE88(88)
-#define TOP_SPACE20or44     IOS11_OR_LATER_SPACE20(44)
-#define TOP_SPACE44or0     IOS11_OR_LATER_SPACE(JF_KEY_WINDOW.safeAreaInsets.top)
-#define TOP_SPACE24or0     IOS11_OR_LATER_SPACE(MAX(0, JF_KEY_WINDOW.safeAreaInsets.top-20))
-#define BOTTOM_SPACE34or0  IOS11_OR_LATER_SPACE(JF_KEY_WINDOW.safeAreaInsets.bottom)
-
 #import "WebViewVC.h"
-#import <WebKit/WKWebView.h>
+#import <WebKit/WebKit.h>
 #import "PlayVideoVC.h"
 
 @interface WebViewVC ()
@@ -32,6 +17,7 @@
 
 @property (nonatomic,strong) UIBarButtonItem *returnButton;
 @property (nonatomic,strong) UIBarButtonItem *closeItem;
+@property (nonatomic, strong) UIProgressView * progressView;
 @end
 
 @implementation WebViewVC
@@ -54,6 +40,7 @@
     }
     return _returnButton;
 }
+
 - (UIBarButtonItem *)closeItem {
     if (!_closeItem) {
         _closeItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStyleDone target:self action:@selector(respondsToReturnToFind:)];
@@ -75,12 +62,29 @@
 - (void)respondsToReturnToFind:(UIBarButtonItem *)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (UIProgressView *)progressView {
+    if (!_progressView){
+        _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, TOP_SPACE88or64, self.view.frame.size.width, 2)];
+        _progressView.tintColor = RGB(71, 140,239);
+        _progressView.trackTintColor = [UIColor clearColor];
+    }
+    return _progressView;
+}
+- (void)dealloc{
+    //移除注册的js方法
+
+    [wkWeb removeObserver:self
+                  forKeyPath:NSStringFromSelector(@selector(estimatedProgress))];
+
+    [wkWeb removeObserver:self
+    forKeyPath:NSStringFromSelector(@selector(title))];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self returnButton];
     [self closeItem];
     self.title = self.titleString;
-    wkWeb = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0,APPSIZE.width , APPSIZE.height)];
+    wkWeb = [[WKWebView alloc]initWithFrame:CGRectMake(0, TOP_SPACE88or64,APPSIZE.width , APPSIZE.height-TOP_SPACE88or64)];
     
     NSString *url = @"http://www.iqiyi.com";
     
@@ -94,13 +98,19 @@
         //搜狐
         url = @"https://m.tv.sohu.com";
     }
-    
-    
-    
+    //添加监测网页加载进度的观察者
+    [wkWeb addObserver:self
+                   forKeyPath:NSStringFromSelector(@selector(estimatedProgress))
+                      options:0
+                      context:nil];
+    [wkWeb addObserver:self
+    forKeyPath:@"title"
+       options:NSKeyValueObservingOptionNew
+       context:nil];
     
     [wkWeb loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
     [self.view addSubview:wkWeb];
-    
+    [self.view addSubview:self.progressView];
     [self addRightButton];
 }
 -(void)addRightButton
@@ -128,6 +138,34 @@
     [self.navigationController pushViewController:play animated:YES];
     
     
+}
+#pragma mark - KVO
+//kvo 监听进度 必须实现此方法
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                      context:(void *)context{
+    
+    if ([keyPath isEqualToString:NSStringFromSelector(@selector(estimatedProgress))]
+        && object == wkWeb) {
+        
+        NSLog(@"网页加载进度 = %f",wkWeb.estimatedProgress);
+        self.progressView.progress = wkWeb.estimatedProgress;
+        if (wkWeb.estimatedProgress >= 1.0f) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.progressView.progress = 0;
+            });
+        }
+        
+    }else if([keyPath isEqualToString:@"title"]
+             && object == wkWeb){
+        self.title = wkWeb.title;
+    }else{
+        [super observeValueForKeyPath:keyPath
+                             ofObject:object
+                               change:change
+                              context:context];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
