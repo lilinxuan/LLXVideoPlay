@@ -21,8 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"VIP播放";
-    
-    
+    NSLog(@"高度 %.2f",TOP_SPACE88or64);
+
     NSArray *arrayTitle = @[@"爱奇艺",@"腾讯",@"优酷",@"乐视",@"搜狐",@"播放教程"];
     NSArray *arrayColor = @[[UIColor colorWithRed:50.0/255.0 green:205.0/255.0 blue:50.0/255.0 alpha:1],[UIColor orangeColor],[UIColor colorWithRed:30.0/255.0 green:144.0/255.0 blue:255.0/255.0 alpha:1],[UIColor redColor],[UIColor colorWithRed:240.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1],[UIColor grayColor]];
     

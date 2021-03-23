@@ -61,10 +61,12 @@
 #define IOS11_OR_LATER_SPACE0(par)({ float space = 0;if (IS_IPHONE_X_XR_XMAX) space = par;(space);})
 
 
+#define statusBarHeight ({float space = [UIApplication sharedApplication].statusBarFrame.size.height;if (@available(iOS 13.0, *)) space = [UIApplication sharedApplication].windows.firstObject.windowScene.statusBarManager.statusBarFrame.size.height;(space);})
+
 #define JF_KEY_WINDOW    [UIApplication sharedApplication].keyWindow
-#define TOP_SPACE88or64     IOS11_OR_LATER_SPACE88(88)
-#define TOP_SPACE20or44     IOS11_OR_LATER_SPACE20(44)
-#define TOP_SPACE44or0     IOS11_OR_LATER_SPACE0(44)
+#define TOP_SPACE88or64     statusBarHeight+44
+#define TOP_SPACE20or44     statusBarHeight
+#define TOP_SPACE44or0     IOS11_OR_LATER_SPACE0(statusBarHeight)
 #define TOP_SPACE24or0     IOS11_OR_LATER_SPACE0(24)
 #define BOTTOM_SPACE34or0  IOS11_OR_LATER_SPACE0(34)
 // Include any system framework and library headers here that should be included in all compilation units.

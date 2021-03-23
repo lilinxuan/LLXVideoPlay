@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "PlayVideoVC.h"
 
-@interface WebViewVC ()
+@interface WebViewVC ()<WKUIDelegate>
 {
     WKWebView *wkWeb;
 }
@@ -64,7 +64,7 @@
 }
 - (UIProgressView *)progressView {
     if (!_progressView){
-        _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, TOP_SPACE88or64, self.view.frame.size.width, 2)];
+        _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, TOP_SPACE88or64, self.view.frame.size.width, 5)];
         _progressView.tintColor = RGB(71, 140,239);
         _progressView.trackTintColor = [UIColor clearColor];
     }
@@ -85,7 +85,7 @@
     [self closeItem];
     self.title = self.titleString;
     wkWeb = [[WKWebView alloc]initWithFrame:CGRectMake(0, TOP_SPACE88or64,APPSIZE.width , APPSIZE.height-TOP_SPACE88or64)];
-    
+    wkWeb.UIDelegate =self;
     NSString *url = @"http://www.iqiyi.com";
     
     if ([self.titleString isEqualToString:@"腾讯"]) {

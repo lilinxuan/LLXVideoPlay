@@ -60,8 +60,8 @@
     [self.view addSubview:self.progressView];
     //添加监测网页加载进度的观察者
     [self.webView addObserver:self
-                   forKeyPath:NSStringFromSelector(@selector(estimatedProgress))
-                      options:0
+                   forKeyPath:@"estimatedProgress"
+                      options:NSKeyValueObservingOptionNew
                       context:nil];
     [self.webView addObserver:self
     forKeyPath:@"title"
@@ -80,7 +80,7 @@
                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
                       context:(void *)context{
     
-    if ([keyPath isEqualToString:NSStringFromSelector(@selector(estimatedProgress))]
+    if ([keyPath isEqualToString:@"estimatedProgress"]
         && object == _webView) {
         
         NSLog(@"网页加载进度 = %f",_webView.estimatedProgress);
